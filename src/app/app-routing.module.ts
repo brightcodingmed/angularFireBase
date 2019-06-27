@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
     {path: "", component: ProductsComponent},
     { path: "add", component: AddProductComponent },
     { path: "edit/:id", component: EditProductComponent },
-  ]},
+  ], canActivate: [AuthGuard]},
   { path: "register", component: RegisterComponent},
   { path: "login", component: LoginComponent},
   { path: "**", component: PageNotFoundComponent}
